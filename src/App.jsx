@@ -23,35 +23,15 @@ import ResourceLinks from './components/ResourceLinks';
 function App() {
   // --- State Hooks for Input Values ---
 
-  // Initial daily shift setup with test data
+  // Initial daily shift setup without test data
   const initialDailyShifts = useMemo(() => {
     return DAYS_OF_WEEK.map(day => {
-      // Default shift configuration
-      let isWorked = false;
-      let startTime = '';
-      let endTime = '';
-
-      // Set default test values for specific days
-      if (day === 'Thursday') {
-        isWorked = true;
-        startTime = '15:00'; // 3:00 PM
-        endTime = '23:53'; // 11:53 PM
-      } else if (day === 'Friday') {
-        isWorked = true;
-        startTime = '17:15'; // 5:15 PM
-        endTime = '23:49'; // 11:49 PM
-      } else if (day === 'Sunday') {
-        isWorked = true;
-        startTime = '15:00'; // 3:00 PM
-        endTime = '23:45'; // 11:45 PM
-      }
-
       return {
         day: day,
-        isWorked: isWorked,
-        startTime: startTime,
-        endTime: endTime,
-        isPublicHoliday: false, // All are non-holidays
+        isWorked: false,
+        startTime: '',
+        endTime: '',
+        isPublicHoliday: false,
       };
     });
   }, []);
